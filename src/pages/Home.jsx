@@ -1,5 +1,19 @@
+import Header from "../components/Header/Header";
+import Hero from "../components/Hero/Hero";
+import Features from "../components/Features/Features";
+import Footer from "../components/Footer/Footer";
+
 function Home() {
-  return <h1>Home Page</h1>;
+  return (
+    <div>
+      <Header />
+      <main>
+        <Hero />
+        <Features />
+      </main>
+      <Footer />
+    </div>
+  );
 }
 
 export default Home;
