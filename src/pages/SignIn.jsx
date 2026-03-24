@@ -1,11 +1,11 @@
-import Header from "../components/Header/Header";
+import NavBar from "../components/NavBar/NavBar";
 import Footer from "../components/Footer/Footer";
 import SignInContent from "../components/SignInContent/SignInContent";
 
 function SignIn() {
   return (
     <div>
-      <Header />
+      <NavBar />
       <main>
         <SignInContent />
       </main>

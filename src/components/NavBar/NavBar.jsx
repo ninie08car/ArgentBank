@@ -1,7 +1,7 @@
 import argentBankLogo from "../../../public/img/argentBankLogo.png";
 import { Link } from "react-router-dom";
 
-function Header() {
+function NavBar() {
   return (
     <nav className="main-nav">
       <Link className="main-nav-logo" to="/">
@@ -22,4 +22,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default NavBar;
