@@ -1,30 +1,10 @@
-const apiUrl = "http://localhost:3000";
+const apiUrl = "http://localhost:3001";
 
 // LOGIN
 async function postLogin(email, password) {
-  const response = await fetch(apiUrl + "/users/login", {
+  const response = await fetch(apiUrl + "/user/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      email: email,
-      password: password,
-    }),
-  });
-  if (response.ok) {
-    const data = await response.json();
-    localStorage.setItem("token", data.token);
-    return data;
-  }
-  return null;
-}
-
-// SIGNUP
-async function postSignup(email, password) {
-  const response = await fetch(apiUrl + "/users/signup", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
     body: JSON.stringify({
       email: email,
       password: password,
