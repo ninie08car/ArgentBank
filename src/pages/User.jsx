@@ -1,40 +1,15 @@
-import NavBar from "../components/NavBar/NavBar";
-import Account from "../components/Account/Account";
+import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import Accounts from "../components/Accounts/Accounts";
 
 function User() {
   return (
     <div>
-      <NavBar />
+      <Navbar isLogged={true} />
       <main className="main bg-dark">
-        <div className="header">
-          <h1>
-            Welcome back
-            <br />
-            Tony Jarvis!
-          </h1>
-          <button className="edit-button">Edit Name</button>
-        </div>
-
-        <h2 className="sr-only">Accounts</h2>
-
-        <Account
-          title="Argent Bank Checking (x8349)"
-          amount="$2,082.79"
-          description="Available Balance"
-        />
-
-        <Account
-          title="Argent Bank Savings (x6712)"
-          amount="$10,928.42"
-          description="Available Balance"
-        />
-
-        <Account
-          title="Argent Bank Credit Card (x8349)"
-          amount="$184.30"
-          description="Current Balance"
-        />
+        <Header />
+        <Accounts />
       </main>
       <Footer />
     </div>

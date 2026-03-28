@@ -1,4 +1,4 @@
-function Account({ title, amount, description }) {
+export default function AccountItem({ title, amount, description }) {
   return (
     <section className="account">
       <div className="account-content-wrapper">
@@ -13,5 +13,3 @@ function Account({ title, amount, description }) {
     </section>
   );
 }
-
-export default Account;

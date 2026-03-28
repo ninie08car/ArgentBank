@@ -1,4 +1,6 @@
-function SignInContent() {
+import "./SignInForm.css";
+
+function SignInForm() {
   return (
     <div className="main bg-dark">
       <section className="sign-in-content">
@@ -28,4 +30,4 @@ function SignInContent() {
   );
 }
 
-export default SignInContent;
+export default SignInForm;

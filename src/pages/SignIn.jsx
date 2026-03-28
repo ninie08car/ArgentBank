@@ -1,13 +1,13 @@
-import NavBar from "../components/NavBar/NavBar";
+import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import SignInContent from "../components/SignInContent/SignInContent";
+import SignInForm from "../components/SignInForm/SignInForm";
 
 function SignIn() {
   return (
     <div>
-      <NavBar />
-      <main>
-        <SignInContent />
+      <Navbar />
+      <main className="main bg-dark">
+        <SignInForm />
       </main>
       <Footer />
     </div>

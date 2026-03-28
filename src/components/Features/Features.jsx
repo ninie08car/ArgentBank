@@ -1,32 +1,30 @@
-import iconChat from "../../../public/img/icon-chat.png";
-import iconMoney from "../../../public/img/icon-money.png";
-import iconSecurity from "../../../public/img/icon-security.png";
+import "./Features.css";
+import FeatureItem from "./FeatureItem";
 
 function Features() {
   return (
     <section className="features">
       <h2 className="sr-only">Features</h2>
-      <div className="feature-item">
-        <img src={iconChat} alt="Chat Icon" className="feature-icon" />
-        <h3 className="feature-item-title">You are our #1 priority</h3>
-        <p>
-          Need to talk to a representative? You can get in touch through our
-          24/7 chat or through a phone call in less than 5 minutes.
-        </p>
-      </div>
-      <div className="feature-item">
-        <img src={iconMoney} alt="Chat Icon" className="feature-icon" />
-        <h3 className="feature-item-title">More savings means higher rates</h3>
-        <p>The more you save with us, the higher your interest rate will be!</p>
-      </div>
-      <div className="feature-item">
-        <img src={iconSecurity} alt="Chat Icon" className="feature-icon" />
-        <h3 className="feature-item-title">Security you can trust</h3>
-        <p>
-          We use top of the line encryption to make sure your data and money is
-          always safe.
-        </p>
-      </div>
+
+      <FeatureItem
+        img="/img/icon-chat.png"
+        title="You are our #1 priority"
+        text="Need to talk to a representative? You can get in touch through our
+        24/7 chat or through a phone call in less than 5 minutes."
+      />
+
+      <FeatureItem
+        img="/img/icon-money.png"
+        title="More savings means higher rates"
+        text="The more you save with us, the higher your interest rate will be!"
+      />
+
+      <FeatureItem
+        img="/img/icon-security.png"
+        title="Security you can trust"
+        text="We use top of the line encryption to make sure your data and money
+        is always safe."
+      />
     </section>
   );
 }
