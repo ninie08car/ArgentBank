@@ -1,4 +1,4 @@
-function FeatureItem({ img, title, text }) {
+const FeatureItem = ({ img, title, text }) => {
   return (
     <div className="feature-item">
       <img src={img} alt="Feature icon" className="feature-icon" />
@@ -6,6 +6,6 @@ function FeatureItem({ img, title, text }) {
       <p>{text}</p>
     </div>
   );
-}
+};
 
 export default FeatureItem;

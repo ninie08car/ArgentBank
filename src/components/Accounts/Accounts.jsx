@@ -1,7 +1,7 @@
 import "./Accounts.css";
 import AccountItem from "./AccountItem";
 
-function Accounts() {
+const Accounts = () => {
   return (
     <>
       <h2 className="sr-only">Accounts</h2>
@@ -25,6 +25,6 @@ function Accounts() {
       />
     </>
   );
-}
+};
 
 export default Accounts;

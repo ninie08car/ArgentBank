@@ -1,7 +1,7 @@
 import "./Features.css";
 import FeatureItem from "./FeatureItem";
 
-function Features() {
+const Features = () => {
   return (
     <section className="features">
       <h2 className="sr-only">Features</h2>
@@ -27,6 +27,6 @@ function Features() {
       />
     </section>
   );
-}
+};
 
 export default Features;

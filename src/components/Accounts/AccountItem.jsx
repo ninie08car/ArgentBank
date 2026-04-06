@@ -1,4 +1,4 @@
-export default function AccountItem({ title, amount, description }) {
+const AccountItem = ({ title, amount, description }) => {
   return (
     <section className="account">
       <div className="account-content-wrapper">
@@ -12,4 +12,6 @@ export default function AccountItem({ title, amount, description }) {
       </div>
     </section>
   );
-}
+};
+
+export default AccountItem;
