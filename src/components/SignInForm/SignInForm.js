@@ -3,7 +3,7 @@ import { useState } from "react";
 import { postLogin, getProfile } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 
-export function useSignInForm() {
+function useSignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -37,3 +37,4 @@ export function useSignInForm() {
     handleSubmit,
   };
 }
+export default useSignInForm;

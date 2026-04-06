@@ -1,4 +1,4 @@
-import argentBankLogo from "../../../public/img/argentBankLogo.png";
+import argentBankLogo from "../../assets/img/argentBankLogo.png";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
