@@ -1,12 +1,12 @@
-import NavBar from "../components/Navbar/Navbar";
+import NavBar from "../components/NavBar/NavBar";
 import Footer from "../components/Footer/Footer";
-import SignInForm from "../components/SignInForm/SignInForm";
+import SignInForm from "../components/SignInForm/SignInForm.jsx";
 
 function SignIn() {
   return (
     <div>
       <NavBar />
-      <main className="main bg-dark">
+      <main>
         <SignInForm />
       </main>
       <Footer />
