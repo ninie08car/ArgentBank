@@ -1,6 +1,6 @@
 import argentBankLogo from "../../assets/img/argentBankLogo.png";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
+import "./NavBar.css";
 
 function NavBar({ isLogged }) {
   return (
