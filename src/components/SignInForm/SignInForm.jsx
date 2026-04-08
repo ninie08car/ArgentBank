@@ -1,21 +1,42 @@
+import useSignInForm from "./SignInForm";
 import "./SignInForm.css";
 
 function SignInForm() {
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    handleSubmit,
+    error,
+    loading,
+  } = useSignInForm();
+
   return (
     <div className="main bg-dark">
       <section className="sign-in-content">
         <i className="fa fa-user-circle sign-in-icon"></i>
         <h1>Sign In</h1>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <label htmlFor="username">Username</label>
-            <input type="text" id="username" />
+            <input
+              type="email"
+              id="username"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
 
           <div className="input-wrapper">
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" />
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
 
           <div className="input-remember">
@@ -23,7 +44,12 @@ function SignInForm() {
             <label htmlFor="remember-me">Remember me</label>
           </div>
 
-          <button className="sign-in-button">Sign In</button>
+          {/* Message d'erreur */}
+          {error && <p className="error-message">{error}</p>}
+
+          <button type="submit" className="sign-in-button" disabled={loading}>
+            {loading ? "Signing in..." : "Sign In"}
+          </button>
         </form>
       </section>
     </div>
