@@ -1,8 +1,8 @@
-const apiUrl = "http://localhost:3001";
+const apiUrl = "http://localhost:3001/api/v1";
 
 // LOGIN
 export async function postLogin(email, password) {
-  const response = await fetch(apiUrl + "/api/v1/user/login", {
+  const response = await fetch(apiUrl + "/user/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -12,17 +12,14 @@ export async function postLogin(email, password) {
   });
   if (response.ok) {
     const data = await response.json();
-    localStorage.setItem("token", data.body.token); // Correction ici
-    return data;
+    return data.body;
   }
   return null;
 }
 
 // GET PROFILE
-export async function getProfile() {
-  const token = localStorage.getItem("token");
-
-  const response = await fetch(apiUrl + "/api/v1/user/profile", {
+export async function getProfile(token) {
+  const response = await fetch(apiUrl + "/user/profile", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -37,10 +34,8 @@ export async function getProfile() {
 }
 
 // UPDATE PROFILE
-export async function putProfile(username) {
-  const token = localStorage.getItem("token");
-
-  const response = await fetch(apiUrl + "/api/v1/user/profile", {
+export async function putProfile(username, token) {
+  const response = await fetch(apiUrl + "/user/profile", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

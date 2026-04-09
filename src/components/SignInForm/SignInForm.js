@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { postLogin, getProfile } from "../../api/api";
+import { postLogin } from "../../api/api";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { loginReducer } from "../../redux/slices/loginSlice";
 
 function useSignInForm() {
   const [email, setEmail] = useState("");
@@ -8,6 +10,7 @@ function useSignInForm() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -16,17 +19,13 @@ function useSignInForm() {
 
     try {
       const login = await postLogin(email, password);
-
       if (!login) {
         setError(
           "Connexion impossible. Vérifie ton email et ton mot de passe.",
         );
         return;
       }
-
-      const user = await getProfile();
-      localStorage.setItem("user", JSON.stringify(user));
-
+      dispatch(loginReducer({ token: login.token }));
       navigate("/user");
     } catch (err) {
       console.error(err);
