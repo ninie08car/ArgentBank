@@ -1,4 +1,3 @@
-// SignInFormLogic.js
 import { useState } from "react";
 import { postLogin, getProfile } from "../../api/api";
 import { useNavigate } from "react-router-dom";

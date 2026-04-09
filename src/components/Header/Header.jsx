@@ -1,4 +1,5 @@
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -8,7 +9,9 @@ export default function Header() {
         <br />
         Tony Jarvis!
       </h1>
-      <button className="edit-button">Edit Name</button>
+      <Link className="edit-button" to="/edit-user-name">
+        Edit Name
+      </Link>
     </div>
   );
 }

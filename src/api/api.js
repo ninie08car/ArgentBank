@@ -2,7 +2,7 @@ const apiUrl = "http://localhost:3001";
 
 // LOGIN
 export async function postLogin(email, password) {
-  const response = await fetch(apiUrl + "/user/login", {
+  const response = await fetch(apiUrl + "/api/v1/user/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -12,7 +12,7 @@ export async function postLogin(email, password) {
   });
   if (response.ok) {
     const data = await response.json();
-    localStorage.setItem("token", data.token);
+    localStorage.setItem("token", data.body.token); // Correction ici
     return data;
   }
   return null;
@@ -22,7 +22,7 @@ export async function postLogin(email, password) {
 export async function getProfile() {
   const token = localStorage.getItem("token");
 
-  const response = await fetch(apiUrl + "/user/profile", {
+  const response = await fetch(apiUrl + "/api/v1/user/profile", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -40,7 +40,7 @@ export async function getProfile() {
 export async function putProfile(username) {
   const token = localStorage.getItem("token");
 
-  const response = await fetch(apiUrl + "/user/profile", {
+  const response = await fetch(apiUrl + "/api/v1/user/profile", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
