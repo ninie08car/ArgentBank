@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const AccountItem = ({ title, amount, description }) => {
   return (
@@ -11,7 +13,7 @@ const AccountItem = ({ title, amount, description }) => {
 
       <div className="account-content-wrapper cta">
         <Link className="transaction-button" to="/transaction">
-          View transactions
+          <FontAwesomeIcon icon={faStar} className="fa-solid fa-chevron" />
         </Link>
       </div>
     </section>

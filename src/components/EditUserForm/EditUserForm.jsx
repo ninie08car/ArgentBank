@@ -25,6 +25,7 @@ const EditUserForm = () => {
       <h2>Edit user info</h2>
 
       <form onSubmit={handleSubmit} className="edit-form">
+        <label htmlFor="username">User name:</label>
         <input
           type="text"
           name="username"
@@ -32,7 +33,7 @@ const EditUserForm = () => {
           onChange={handleChange}
           placeholder="User name"
         />
-
+        <label htmlFor="firstname">First name:</label>
         <input
           type="text"
           name="firstname"
@@ -40,7 +41,7 @@ const EditUserForm = () => {
           onChange={handleChange}
           placeholder="First name"
         />
-
+        <label htmlFor="lastname">Last name:</label>
         <input
           type="text"
           name="lastname"
