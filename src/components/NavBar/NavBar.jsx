@@ -1,8 +1,20 @@
 import argentBankLogo from "../../assets/img/argentBankLogo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutReducer } from "../../redux/slices/loginSlice";
 import "./NavBar.css";
 
 function NavBar({ isLogged }) {
+  const { user } = useSelector((state) => state.login);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    dispatch(logoutReducer());
+    navigate("/");
+  };
+
   return (
     <nav className="main-nav">
       <Link className="main-nav-logo" to="/">
@@ -19,9 +31,9 @@ function NavBar({ isLogged }) {
           <>
             <Link className="main-nav-item" to="/user">
               <i className="fa fa-user-circle"></i>
-              Tony
+              {user ? user.userName : "User"}
             </Link>
-            <Link className="main-nav-item" to="/">
+            <Link className="main-nav-item" to="/" onClick={handleLogout}>
               <i className="fa fa-sign-out"></i>
               Sign Out
             </Link>

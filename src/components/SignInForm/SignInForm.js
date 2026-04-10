@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { postLogin } from "../../api/api";
+import { postLogin, getProfile } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginReducer } from "../../redux/slices/loginSlice";
@@ -25,7 +25,9 @@ function useSignInForm() {
         );
         return;
       }
-      dispatch(loginReducer({ token: login.token }));
+      
+      const user = await getProfile(login.token);
+      dispatch(loginReducer({ token: login.token, user }));
       navigate("/user");
     } catch (err) {
       console.error(err);

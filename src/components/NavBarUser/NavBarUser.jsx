@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStar,
@@ -6,6 +6,7 @@ import {
   faGear,
   faPowerOff,
 } from "@fortawesome/free-solid-svg-icons";
+
 import "./NavbarUser.css";
 
 const NavbarUser = () => {
@@ -27,9 +28,9 @@ const NavbarUser = () => {
         <button type="button" className="icon-button logo-text">
           <FontAwesomeIcon icon={faGear} />
         </button>
-        <button type="button" className="icon-button logo-text">
+        <Link className="icon-button logo-text" to="/">
           <FontAwesomeIcon icon={faPowerOff} />
-        </button>
+        </Link>
       </div>
     </div>
   );
