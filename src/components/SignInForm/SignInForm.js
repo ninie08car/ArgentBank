@@ -3,6 +3,7 @@ import { postLogin, getProfile } from "../../api/api";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginReducer } from "../../redux/slices/loginSlice";
+import { setProfile } from "../../redux/slices/profileSlice";
 
 function useSignInForm() {
   const [email, setEmail] = useState("");
@@ -25,9 +26,10 @@ function useSignInForm() {
         );
         return;
       }
-      
+
       const user = await getProfile(login.token);
-      dispatch(loginReducer({ token: login.token, user }));
+      dispatch(loginReducer({ token: login.token }));
+      dispatch(setProfile(user));
       navigate("/user");
     } catch (err) {
       console.error(err);

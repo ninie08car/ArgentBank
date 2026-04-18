@@ -1,11 +1,11 @@
-import NavbarUser from "../components/NavBarUser/NavBarUser";
+import Navbar from "../components/NavBar/NavBar";
 import AccountItem from "../components/Accounts/AccountItem";
 import Footer from "../components/Footer/Footer";
 
 function Transaction() {
   return (
     <div>
-      <NavbarUser />
+      <Navbar />
       <main>
         <AccountItem />
       </main>

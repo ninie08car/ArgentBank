@@ -1,4 +1,4 @@
-import NavBarUser from "../components/NavBarUser/NavBarUser";
+import NavBar from "../components/NavBar/NavBar";
 import EditUserForm from "../components/EditUserForm/EditUserForm";
 import Accounts from "../components/Accounts/Accounts";
 import Footer from "../components/Footer/Footer";
@@ -6,7 +6,7 @@ import Footer from "../components/Footer/Footer";
 function EditUserName() {
   return (
     <div>
-      <NavBarUser />
+      <NavBar />
       <main>
         <EditUserForm />
         <Accounts />

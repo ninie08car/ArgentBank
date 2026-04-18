@@ -5,12 +5,11 @@ import { logoutReducer } from "../../redux/slices/loginSlice";
 import "./NavBar.css";
 
 function NavBar({ isLogged }) {
-  const { user } = useSelector((state) => state.login);
+  const { user } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
     dispatch(logoutReducer());
     navigate("/");
   };

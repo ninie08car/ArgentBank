@@ -1,15 +1,18 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { putProfile } from "../../api/api";
+import { updateUsername } from "../../redux/slices/profileSlice";
 import "./EditUserForm.css";
 
 const EditUserForm = () => {
-  const { user, token } = useSelector((state) => state.login);
+  const { userName, firstName, lastName } = useSelector((state) => state.profile);
+  const { token } = useSelector((state) => state.login);
+  const dispatch = useDispatch();
 
   const [form, setForm] = useState(() => ({
-    username: user?.userName || "",
-    firstname: user?.firstName || "",
-    lastname: user?.lastName || "",
+    username: userName || "",
+    firstname: firstName || "",
+    lastname: lastName || "",
   }));
 
   const [loading, setLoading] = useState(false);
@@ -36,6 +39,7 @@ const EditUserForm = () => {
       if (response) {
         console.log("Profil mis à jour :", response);
         setSuccess(true);
+        dispatch(updateUsername(form.username));
       } else {
         console.error("Erreur update");
       }
