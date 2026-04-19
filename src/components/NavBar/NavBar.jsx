@@ -6,7 +6,7 @@ import { clearProfile } from "../../redux/slices/profileSlice";
 import "./NavBar.css";
 
 function NavBar({ isLogged }) {
-  const { user } = useSelector((state) => state.profile);
+  const { userName } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ function NavBar({ isLogged }) {
           <>
             <Link className="main-nav-item" to="/user">
               <i className="fa fa-user-circle"></i>
-              {user ? user.userName : "User"}
+              {userName || "User"}
             </Link>
             <Link className="main-nav-item" to="/" onClick={handleLogout}>
               <i className="fa fa-sign-out"></i>
