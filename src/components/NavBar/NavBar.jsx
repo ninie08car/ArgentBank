@@ -2,6 +2,7 @@ import argentBankLogo from "../../assets/img/argentBankLogo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutReducer } from "../../redux/slices/loginSlice";
+import { clearProfile } from "../../redux/slices/profileSlice";
 import "./NavBar.css";
 
 function NavBar({ isLogged }) {
@@ -11,6 +12,7 @@ function NavBar({ isLogged }) {
 
   const handleLogout = () => {
     dispatch(logoutReducer());
+    dispatch(clearProfile());
     navigate("/");
   };
 
