@@ -6,7 +6,7 @@ import Footer from "../components/Footer/Footer";
 function EditUserName() {
   return (
     <div>
-      <NavBar />
+      <NavBar isLogged={true} />
       <main>
         <EditUserForm />
         <Accounts />

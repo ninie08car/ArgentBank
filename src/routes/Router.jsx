@@ -3,7 +3,6 @@ import Home from "../pages/Home";
 import SignIn from "../pages/SignIn";
 import User from "../pages/User";
 import EditUserName from "../pages/EditUserName";
-import Transaction from "../pages/Transaction";
 import ProtectedRoute from "./ProtectedRoute";
 
 function Router() {
@@ -16,10 +15,10 @@ function Router() {
         path="/edit-user-name"
         element={<ProtectedRoute element={<EditUserName />} />}
       />
-      <Route
+      {/* <Route
         path="/transaction"
         element={<ProtectedRoute element={<Transaction />} />}
-      />
+      /> */}
     </Routes>
   );
 }

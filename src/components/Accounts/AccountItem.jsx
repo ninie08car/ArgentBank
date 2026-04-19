@@ -12,9 +12,9 @@ const AccountItem = ({ title, amount, description }) => {
       </div>
 
       <div className="account-content-wrapper cta">
-        <Link className="transaction-button" to="/transaction">
-          <FontAwesomeIcon icon={faStar} className="fa-solid fa-chevron" />
-        </Link>
+        {/* <Link className="transaction-button" to="/transaction"> */}
+        <FontAwesomeIcon icon={faStar} className="fa-solid fa-chevron" />
+        {/* </Link> */}
       </div>
     </section>
   );
