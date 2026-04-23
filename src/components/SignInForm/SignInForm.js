@@ -29,7 +29,13 @@ function useSignInForm() {
 
       const user = await getProfile(login.token);
       dispatch(loginReducer({ token: login.token }));
-      dispatch(setProfile(user));
+      dispatch(
+        setProfile({
+          userName: user.username,
+          firstName: user.firstName,
+          lastName: user.lastName,
+        }),
+      );
       navigate("/user");
     } catch (err) {
       console.error(err);

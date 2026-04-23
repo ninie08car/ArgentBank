@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { logoutReducer } from "../../redux/slices/loginSlice";
 import { clearProfile } from "../../redux/slices/profileSlice";
 import "./NavBar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPowerOff, faGear } from "@fortawesome/free-solid-svg-icons";
 
 function NavBar({ isLogged }) {
   const { userName } = useSelector((state) => state.profile);
@@ -38,6 +40,8 @@ function NavBar({ isLogged }) {
               <i className="fa fa-sign-out"></i>
               Sign Out
             </Link>
+            <FontAwesomeIcon icon={faGear} />
+            <FontAwesomeIcon icon={faPowerOff} />
           </>
         ) : (
           <Link className="main-nav-item" to="/sign-in">

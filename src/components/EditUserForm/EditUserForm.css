@@ -1,16 +1,16 @@
 .edit-container {
   max-width: 400px;
-  margin: 40px auto;
+  margin: auto;
+  margin-bottom: 15px;
   background: white;
   padding: 25px;
   border-radius: 5px;
   text-align: center;
+  box-sizing: border-box;
+  background-color: white;
+  width: 300px;
+  overflow: hidden;
 }
-
-.edit-container h2 {
-  margin-bottom: 20px;
-}
-
 .edit-form {
   display: flex;
   flex-direction: column;
@@ -18,9 +18,14 @@
 }
 
 .edit-form input {
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 3px;
+  width: 115px;
+}
+
+.edit-form .bg-input {
+  background: rgb(192, 186, 186);
 }
 
 .buttons {
@@ -30,20 +35,12 @@
   margin-top: 15px;
 }
 
-.save {
+.buttons button {
   background: #00bc77;
   color: white;
   border: none;
   padding: 10px 15px;
   border-radius: 3px;
   cursor: pointer;
-}
-
-.cancel {
-  background: #00bc77;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 3px;
-  cursor: pointer;
+  width: 130px;
 }

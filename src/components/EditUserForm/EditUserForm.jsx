@@ -5,7 +5,9 @@ import { updateUsername } from "../../redux/slices/profileSlice";
 import "./EditUserForm.css";
 
 const EditUserForm = () => {
-  const { userName, firstName, lastName } = useSelector((state) => state.profile);
+  const { userName, firstName, lastName } = useSelector(
+    (state) => state.profile,
+  );
   const { token } = useSelector((state) => state.login);
   const dispatch = useDispatch();
 
@@ -52,53 +54,57 @@ const EditUserForm = () => {
 
   return (
     <div className="edit-container">
-      <h2>Edit user info</h2>
+      <section className="edit-user-content">
+        <h1>Edit user info</h1>
 
-      <form onSubmit={handleSubmit} className="edit-form">
-        <div>
-          <label>User name:</label>
-          <input
-            type="text"
-            name="username"
-            value={form.username}
-            onChange={handleChange}
-          />
-        </div>
+        <form onSubmit={handleSubmit} className="edit-form">
+          <div>
+            <label>User name: </label>
+            <input
+              type="text"
+              name="username"
+              value={form.username}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div>
-          <label>First name:</label>
-          <input
-            type="text"
-            name="firstname"
-            value={form.firstname}
-            onChange={handleChange}
-            disabled
-          />
-        </div>
+          <div>
+            <label>First name: </label>
+            <input
+              type="text"
+              name="firstname"
+              className="bg-input"
+              value={form.firstname}
+              onChange={handleChange}
+              disabled
+            />
+          </div>
 
-        <div>
-          <label>Last name:</label>
-          <input
-            type="text"
-            name="lastname"
-            value={form.lastname}
-            onChange={handleChange}
-            disabled
-          />
-        </div>
+          <div>
+            <label>Last name: </label>
+            <input
+              type="text"
+              name="lastname"
+              className="bg-input"
+              value={form.lastname}
+              onChange={handleChange}
+              disabled
+            />
+          </div>
 
-        <div className="buttons">
-          <button type="submit" className="save" disabled={loading}>
-            {loading ? "Saving..." : "Save"}
-          </button>
+          <div className="buttons">
+            <button type="submit" className="save" disabled={loading}>
+              {loading ? "Saving..." : "Save"}
+            </button>
 
-          <button type="button" className="cancel">
-            Cancel
-          </button>
-        </div>
+            <button type="button" className="cancel">
+              Cancel
+            </button>
+          </div>
 
-        {success && <p className="success">Username updated</p>}
-      </form>
+          {success && <p className="success">Username updated</p>}
+        </form>
+      </section>
     </div>
   );
 };

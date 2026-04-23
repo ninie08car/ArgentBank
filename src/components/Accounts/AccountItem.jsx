@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const AccountItem = ({ title, amount, description }) => {
   return (
@@ -13,7 +13,10 @@ const AccountItem = ({ title, amount, description }) => {
 
       <div className="account-content-wrapper cta">
         {/* <Link className="transaction-button" to="/transaction"> */}
-        <FontAwesomeIcon icon={faStar} className="fa-solid fa-chevron" />
+        <FontAwesomeIcon
+          icon={faChevronRight}
+          className="fa-solid fa-chevron"
+        />
         {/* </Link> */}
       </div>
     </section>

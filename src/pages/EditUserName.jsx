@@ -7,7 +7,7 @@ function EditUserName() {
   return (
     <div>
       <NavBar isLogged={true} />
-      <main>
+      <main className="main bg-dark">
         <EditUserForm />
         <Accounts />
       </main>
