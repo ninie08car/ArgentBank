@@ -6,7 +6,7 @@ import Accounts from "../components/Accounts/Accounts";
 function User() {
   return (
     <div>
-      <NavBar isLogged={true} />
+      <NavBar />
       <main className="main bg-dark">
         <Header />
         <Accounts />

@@ -39,7 +39,8 @@ const EditUserForm = () => {
       const response = await putProfile(form.username, token);
 
       if (response) {
-        console.log("Profil mis à jour :", response);
+        console.log("Profil mis à jour :", response, form);
+
         setSuccess(true);
         dispatch(updateUsername(form.username));
       } else {

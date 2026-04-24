@@ -6,7 +6,7 @@ import Footer from "../components/Footer/Footer";
 function EditUserName() {
   return (
     <div>
-      <NavBar isLogged={true} />
+      <NavBar />
       <main className="main bg-dark">
         <EditUserForm />
         <Accounts />

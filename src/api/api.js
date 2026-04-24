@@ -45,6 +45,7 @@ export async function putProfile(username, token) {
   });
   if (response.ok) {
     const data = await response.json();
+
     return data;
   }
   return null;

@@ -31,7 +31,7 @@ function useSignInForm() {
       dispatch(loginReducer({ token: login.token }));
       dispatch(
         setProfile({
-          userName: user.username,
+          userName: user.userName,
           firstName: user.firstName,
           lastName: user.lastName,
         }),
