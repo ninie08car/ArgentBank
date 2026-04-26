@@ -1,0 +1,161 @@
+swagger: "2.0"
+
+info:
+  title: Argent Bank API - Transactions
+  description: API pour la gestion des transactions utilisateurs
+  version: "1.0.0"
+  termsOfService: "http://swagger.io/terms/"
+
+host: localhost:3001
+basePath: /api/v1
+schemes:
+  - http
+
+paths:
+  /user/transactions:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Récupérer les transactions du mois en cours
+      description: API pour récupérer toutes les transactions du mois en cours, groupées par compte
+      parameters:
+        - in: query
+          name: accountId
+          description: Permet de filtrer les transactions par compte spécifique
+          required: false
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Liste des transactions récupérée avec succès
+          schema:
+            $ref: "#/definitions/TransactionsResponse"
+        "401":
+          description: Utilisateur non authentifié
+        "500":
+          description: Erreur serveur interne
+
+  /user/transactions/{transactionId}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Voir le détail d'une transaction
+      description: API pour récupérer toutes les informations d'une transaction spécifique
+      parameters:
+        - in: path
+          name: transactionId
+          description: ID de la transaction
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Transaction trouvée
+          schema:
+            $ref: "#/definitions/TransactionDetail"
+        "401":
+          description: Non autorisé
+        "404":
+          description: Transaction introuvable
+        "500":
+          description: Erreur serveur interne
+
+    patch:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Modifier une transaction
+      description: API pour modifier la catégorie ou la note d'une transaction
+      parameters:
+        - in: path
+          name: transactionId
+          description: ID de la transaction
+          required: true
+          type: string
+
+        - in: body
+          name: body
+          description: Données à modifier sur la transaction
+          required: true
+          schema:
+            $ref: "#/definitions/TransactionUpdate"
+
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Transaction mise à jour avec succès
+          schema:
+            $ref: "#/definitions/TransactionDetail"
+        "400":
+          description: Données invalides
+        "401":
+          description: Non autorisé
+        "404":
+          description: Transaction non trouvée
+        "500":
+          description: Erreur serveur interne
+
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+
+definitions:
+  TransactionsResponse:
+    type: object
+    properties:
+      status:
+        type: integer
+      message:
+        type: string
+      body:
+        type: array
+        items:
+          $ref: "#/definitions/TransactionDetail"
+
+  TransactionDetail:
+    type: object
+    properties:
+      id:
+        type: string
+        description: ID unique de la transaction
+      date:
+        type: string
+        description: Date de la transaction
+      amount:
+        type: number
+        format: float
+        description: Montant de la transaction
+      description:
+        type: string
+        description: Description de la transaction
+      type:
+        type: string
+        description: Type de transaction (paiement, virement, etc.)
+      category:
+        type: string
+        description: Catégorie de la transaction
+      note:
+        type: string
+        description: Note ajoutée par l'utilisateur
+
+  TransactionUpdate:
+    type: object
+    properties:
+      category:
+        type: string
+        description: Nouvelle catégorie de la transaction
+        example: Food
+      note:
+        type: string
+        description: Nouvelle note associée à la transaction
+        example: Courses du weekend
