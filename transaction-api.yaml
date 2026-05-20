@@ -26,6 +26,19 @@ paths:
           description: Permet de filtrer les transactions par compte spécifique
           required: false
           type: string
+
+        - in: query
+          name: month
+          description: Mois des transactions (format MM)
+          required: false
+          type: string
+
+        - in: query
+          name: year
+          description: Année des transactions (format YYYY)
+          required: false
+          type: string
+
       produces:
         - application/json
       responses:
