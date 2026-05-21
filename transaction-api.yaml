@@ -5,12 +5,10 @@ info:
   description: API pour la gestion des transactions utilisateurs
   version: "1.0.0"
   termsOfService: "http://swagger.io/terms/"
-
 host: localhost:3001
 basePath: /api/v1
 schemes:
   - http
-
 paths:
   /acounts/{accountId}/transactions:
     get:
@@ -21,10 +19,10 @@ paths:
       summary: Récupérer les transactions du mois en cours
       description: API pour récupérer toutes les transactions du mois en cours, groupées par compte
       parameters:
-        - in: query
+        - in: path
           name: accountId
           description: Permet de filtrer les transactions par compte spécifique
-          required: false
+          required: true
           type: string
 
         - in: query
