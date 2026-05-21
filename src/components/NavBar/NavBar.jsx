@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutReducer } from "../../redux/slices/loginSlice";
 import { clearProfile } from "../../redux/slices/profileSlice";
-import "./NavBar.css";
+import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function NavBar() {
