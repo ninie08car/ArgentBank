@@ -79,7 +79,7 @@ paths:
         "500":
           description: Erreur serveur interne
 
-    put:
+    patch:
       security:
         - Bearer: []
       tags:
@@ -109,6 +109,58 @@ paths:
             $ref: "#/definitions/TransactionDetail"
         "400":
           description: Données invalides
+        "401":
+          description: Non autorisé
+        "404":
+          description: Transaction non trouvée
+        "500":
+          description: Erreur serveur interne
+
+  /user/transactions/{transactionId}/category:
+    delete:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Supprimer la catégorie d'une transaction
+      description: API permettant de supprimer la catégorie associée à une transaction
+      parameters:
+        - in: path
+          name: transactionId
+          description: ID de la transaction
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Catégorie supprimée avec succès
+        "401":
+          description: Non autorisé
+        "404":
+          description: Transaction non trouvée
+        "500":
+          description: Erreur serveur interne
+
+  /user/transactions/{transactionId}/note:
+    delete:
+      security:
+        - Bearer: []
+      tags:
+        - Transactions Module
+      summary: Supprimer la note d'une transaction
+      description: API permettant de supprimer la note associée à une transaction
+      parameters:
+        - in: path
+          name: transactionId
+          description: ID de la transaction
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: Note supprimée avec succès
         "401":
           description: Non autorisé
         "404":
